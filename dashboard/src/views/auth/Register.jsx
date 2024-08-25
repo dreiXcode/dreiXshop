@@ -29,7 +29,7 @@ const submit = (e) => {
                     <h2 className='text-xl mb-3 font-bold'>Welcome to dreiXShop</h2>
                     <p className='text-sm mb-3 font-medium'>Please register your account</p>
 
-                    <form onSubmit={submit} >
+                    <form onSubmit={submit}>
                         <div className='flex flex-col w-full gap-1 mb-3'>
                             <label htmlFor="name">Name</label>
                             <input onChange={inputHandle} value={state.name} className='px-3 py-2 outline-none border border-slate-700 bg-transparent rounded-md' type="text" name='name' placeholder='name' id='name' required/>
