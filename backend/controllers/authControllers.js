@@ -1,5 +1,7 @@
 const adminModel = require('../models/adminModel')
-const { responseReture } = require('../utilities/response')
+const { responseReturn } = require('../utilities/response')
+const bcrypt = require('bcrypt')
+const { createToken } = require('../utilities/tokenCreate')
 
 class authControllers{
     admin_login = async(req, res) => {
@@ -8,13 +10,31 @@ class authControllers{
             const admin = await adminModel.findOne({email}).select('+password')
             //console.log(admin)
             if (admin) {
-                
+                const match = await bcrypt.compare(password, admin.password)
+                console.log(match)
+                if (match) {
+                    const token = await createToken({
+                        id : admin.id,
+                        role : admin.role
+                    })  
+                    res.cookie('accessToken', token,{
+                        expires : new Date(Date.now() + 7*24*60*60*1000)
+                    })
+                    //responseReturn(res, 200, {token, message: "Login Success"})
+                    res.status(200).json({ message: "Login Success", token });
+                    
+
+                } else {
+                    responseReturn(res, 404, {error: "Incorrect password"})   
+                }
+                console.log("Login Success response sent");
+
             } else {
-                responseReture(res, 404, {error: "Email not found"})   
+                responseReturn(res, 404, {error: "Email not found"})   
             }
 
         } catch (error) {
-            responseReture(res, 500, {error: error.message})
+            responseReturn(res, 500, {error: error.message})
         }
     }
 }
