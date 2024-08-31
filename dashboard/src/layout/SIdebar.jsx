@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { getNav } from '../navigation';
 
 const Sidebar = () => {
 
+    const {pathname} = useLocation()
     const [allNav, setAllNav] = useState([])
     useEffect(() => {
         const navs = getNav('admin')
         setAllNav(navs)
     },[])
-    console.log(allNav)
+    //console.log(allNav)
+
 
     return (
         <div>
@@ -22,6 +24,16 @@ const Sidebar = () => {
                     </Link>
                 </div>
                 <div className=''>
+                    <ul>
+                        {
+                            allNav.map((n,i) => <li key={i}>
+                                <Link to={n.pathname} className={`${pathname === n.path ? 'bg-blue-600 shadow-indigo-500/50 text-white duration-500' : 'text-[#030811] font-bold duration-200'} px-[12px] py-[9px] rounded-sm flex justify-start items-center gap-[12px] hover:pl-4 transition-all w-full mb-1`}>
+                                    <span>{n.icon}</span>
+                                    <span>{n.title}</span>
+                                </Link>
+                            </li>)
+                        }
+                    </ul>
 
                 </div>
             </div>
