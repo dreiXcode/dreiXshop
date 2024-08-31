@@ -6,7 +6,7 @@ import { FaCartArrowDown } from "react-icons/fa6";
 import Chart from 'react-apexcharts'
 import { Link } from 'react-router-dom';
 
-const AdminDashBoard = () => {
+const AdminDashboard = () => {
 
     const state = {
         series : [
@@ -237,4 +237,4 @@ const AdminDashBoard = () => {
     );
 };
 
-export default AdminDashBoard;
+export default AdminDashboard;
