@@ -1,15 +1,18 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, isRejectedWithValue } from "@reduxjs/toolkit";
 import api from "../../api/api";
 
 export const admin_login = createAsyncThunk(
     'auth/admin_login',
-    async(info) => {
+    async(info, {rejectWithValue, fulfillwithValue}) => {
         console.log(info)
         try {
             const {data} = await api.post('/admin-login',info, {withCredentials: true})
-            console.log(data)            
+            //console.log(data)
+            return fulfillwithValue(data)            
         } catch (error) {
-            console.log(error.response.data)
+            //console.log(error.response.data)
+            return rejectWithValue(error.response.data); 
+
         }
     }
 )
@@ -23,6 +26,9 @@ export const authReducer =  createSlice ({
         userInfo: ''
     },
     reducers : {
+        messageClear : (state, _) => {
+            state.errorMessage = ""
+        }
 
     },
     extraReducers : (builder) => {
@@ -30,7 +36,12 @@ export const authReducer =  createSlice ({
         .addCase(admin_login.pending, (state, {payload}) => {
             state.loader = true;
         })
+        .addCase(admin_login.rejected, (state, {payload}) => {
+            state.loader = false;
+            state.errorMessage = payload.error
+        })
     }
 })
 
+export const {messageClear} = authReducer.actions
 export default authReducer.reducer
