@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { LuArrowDownSquare } from "react-icons/lu";
 import { Link } from 'react-router-dom';
+import Pagination from '../Pagination';
 
 const Orders = () => {
-    const [currenPage, setCurrentPage] = useState(1)
+    const [currentPage, setCurrentPage] = useState(1)
     const [searchValue, setSearchValue] = useState('')
     const [parPage, setParPage] = useState(5)
     const [show, setShow] = useState(false)
@@ -129,7 +130,7 @@ const Orders = () => {
                             </div>
 
                         </div>
-                        
+
                         <div className='text-[#d0d2d6]'>
                             <div className='flex justify-between items-start border-b border-slate-700'>
                                 <div className='py-3 w-[25%] font-medium whitespace-nowrap'>55445</div>
@@ -163,6 +164,13 @@ const Orders = () => {
                         </div>
                     </div>
                 </div>
+
+                <Pagination 
+                    pageNumber = {currentPage}
+                    setPageNumber = {setCurrentPage}
+                    totalItem = {50}
+                />
+
             </div>            
         </div>
     );
