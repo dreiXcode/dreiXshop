@@ -100,7 +100,7 @@ const Category = () => {
 
                                     <div>
                                         <button className='bg-red-500 w-full hover:shadow-red-500/40 hover:shadow-md text-white rounded-md px-7 py-2 my-2' >
-                                            Add Categorty
+                                            Add Category
                                         </button>
                                     </div>
                                 </div>
