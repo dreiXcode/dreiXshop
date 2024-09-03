@@ -5,7 +5,7 @@ import { FaEye } from "react-icons/fa";
 
 import { FaEdit, FaTrash } from 'react-icons/fa';
 
-const DeactivateSellers = () => {
+const InactiveSellers = () => {
 
     const [currentPage, setCurrentPage] = useState(1)
     const [searchValue, setSearchValue] = useState('')
@@ -14,7 +14,7 @@ const DeactivateSellers = () => {
 
     return (
         <div className='px-2 lg:px-7 pt-5'>
-            <h1 className='text-[20px] font-bold mb-3'>Deactivate Seller</h1>
+            <h1 className='text-[20px] font-bold mb-3'>Inactive Sellers</h1>
             
             <div className='w-full p-4 bg-[#6a5fdf] rounded-md'>
 
@@ -75,4 +75,4 @@ const DeactivateSellers = () => {
     );
 };
 
-export default DeactivateSellers;
+export default InactiveSellers;
