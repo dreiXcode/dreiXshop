@@ -61,6 +61,62 @@ export const allNav = [
         icon : <IoChatbubblesSharp />,
         role : 'admin',
         path : '/admin/dashboard/chat-sellers'
+    },
+    {
+        id : 9,
+        title : 'Dashboard',
+        icon : <IoChatbubblesSharp />,
+        role : 'seller',
+        path : '/seller/dashboard'
+    },
+    {
+        id : 10,
+        title : 'Add Product',
+        icon : <IoChatbubblesSharp />,
+        role : 'seller',
+        path : '/seller/dashboard/add-product'
+    },
+    {
+        id : 11,
+        title : 'All Product',
+        icon : <IoChatbubblesSharp />,
+        role : 'seller',
+        path : '/seller/dashboard/all-product'
+    },
+    {
+        id : 12,
+        title : 'Discount Product',
+        icon : <IoChatbubblesSharp />,
+        role : 'seller',
+        path : '/seller/dashboard/discount-product'
+    },
+    {
+        id : 13,
+        title : 'Orders',
+        icon : <IoChatbubblesSharp />,
+        role : 'seller',
+        path : '/seller/dashboard/orders'
+    },
+    {
+        id : 14,
+        title : 'Payments',
+        icon : <IoChatbubblesSharp />,
+        role : 'seller',
+        path : '/seller/dashboard/payments'
+    },
+    {
+        id : 15,
+        title : 'Chat-Customer',
+        icon : <IoChatbubblesSharp />,
+        role : 'seller',
+        path : '/seller/dashboard/chat-customer'
+    },
+    {
+        id : 16,
+        title : 'Chat Support',
+        icon : <IoChatbubblesSharp />,
+        role : 'seller',
+        path : '/seller/dashboard/chat-support'
     }
     
 ]
