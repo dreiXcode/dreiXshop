@@ -1,5 +1,28 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { MdCurrencyExchange } from "react-icons/md";
+
+import { FixedSizeList as List } from 'react-window';
+
+function handleOnWheel ({ deltaY}) {
+    console.log('handleOnWheel', deltaY)
+}
+
+const outerElementType = forwardRef((props, ref) => (
+    <div ref={ref} onWheel={handleOnWheel} {...props}/>
+))
+
+const Row = ({index, style}) => {
+    return (
+        <div style={style} className='flex text-sm text-white font-medium'>
+            <div className='w-[25%] p-2 whitespace-nowrap'>{index+1}</div>
+            <div className='w-[25%] p-2 whitespace-nowrap'>$5454</div>
+            <div className='w-[25%] p-2 whitespace-nowrap'>
+                <span className='py-[1px] px-[5px] bg-slate-300 text-blue-500 rounded-md text-sm'>Pending</span>
+            </div>
+            <div className='w-[25%] p-2 whitespace-nowrap'>02 Sep 2024</div>
+        </div>
+    )
+}
 
 const Payments = () => {
     return (
@@ -64,7 +87,7 @@ const Payments = () => {
                     <div className='pt-5 mb-5'>
                         <form>
                             <div className='flex gap-3 flex-wrap'>
-                                <input min='0' type="number" className='px-3 py-2 md:w-[79%] focus:border-indigo-200 outline-none bg-[#6a5fdf] border border-slate-700 rounded-md text-[#d0d2d6]' name='amount'/>
+                                <input min='0' type="number" className='px-3 py-2 md:w-[75%] focus:border-indigo-200 outline-none bg-[#6a5fdf] border border-slate-700 rounded-md text-[#d0d2d6]' name='amount'/>
 
                                 <button className='bg-red-500 hover:shadow-red-500/40 hover:shadow-md text-white rounded-md px-7 py-2' >Submit</button>
                             </div>
@@ -73,10 +96,58 @@ const Payments = () => {
 
                     <div>
                         <h2 className='text-lg pb-4'>Pending Request</h2>
+                        <div className='w-full'>
+                        <div className='w-full overflow-x-auto'>
+                            <div className='flex bg-[#a7a3de] uppercase text-xs min-w-[340px] font-bold rounded-md'>
+                                <div className='w-[25%] p-2'>No</div>
+                                <div className='w-[25%] p-2'>Amount</div>
+                                <div className='w-[25%] p-2'>Status</div>
+                                <div className='w-[25%] p-2'>Date</div>
+                            </div>
+                        </div>
+                            {
+                                <List
+                                    style = {{minWidth : '340px'}}
+                                    className = 'List'
+                                    height = {350}
+                                    itemCount = {10}
+                                    itemSize={35}
+                                    outerElementType={outerElementType}
+                                > 
+                                    {Row}
+                                </List>
+                            }
+                        </div>
                     </div>
-
                 </div>
 
+                <div className='bg-[#6a5fdf] text-[#d0d2d6]  rounded-md p-5'>                    
+                    <div>
+                        <h2 className='text-lg pb-4'>Withdrawal Success</h2>
+                        <div className='w-full'>
+                            <div className='w-full overflow-x-auto'>
+                                <div className='flex bg-[#a7a3de] uppercase text-xs min-w-[340px] font-bold rounded-md'>
+                                    <div className='w-[25%] p-2'>No</div>
+                                    <div className='w-[25%] p-2'>Amount</div>
+                                    <div className='w-[25%] p-2'>Status</div>
+                                    <div className='w-[25%] p-2'>Date</div>
+                                </div>
+                            </div>
+                                {
+                                    <List
+                                        style = {{minWidth : '340px'}}
+                                        className = 'List'
+                                        height = {350}
+                                        itemCount = {10}
+                                        itemSize={35}
+                                        outerElementType={outerElementType}
+                                    > 
+                                        {Row}
+                                    </List>
+                                }
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
