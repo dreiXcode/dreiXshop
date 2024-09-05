@@ -7,6 +7,8 @@ const Profile = () => {
 
     const image = true
     const loader = true
+    const status = 'active'
+    const userInfo = true
 
     return (
         <div className='px-2 lg:px-7 py-5'>
@@ -69,11 +71,54 @@ const Profile = () => {
 
                                 <div className='flex gap-2'>
                                     <span>Payment Account : </span>
-                                    <span>Pending</span>
+                                    <p>
+                                        {
+                                            status === 'active' ? <span className='bg-green-500 text-white text-xs cursor-pointer font-normal ml-2 px-2 py-0.5 rounded'>Pending</span> : <span className='bg-blue-500 text-white text-xs cursor-pointer font-normal ml-2 px-2 py-0.5 rounded'>Click Active</span>
+                                        }
+                                    </p>
                                 </div>
 
                             </div>                
                         </div>  
+
+                        <div className='px-0 md:px-5 py-2'>
+                            {
+                                !userInfo && <form>
+
+                                    <div className='flex flex-col w-full gap-1 mb-2'>
+                                        <label htmlFor="shop">Shop Name</label>
+                                        <input className='px-4 py-2 focus:border-indigo-200 outline-none bg-[#6a5fdf] border border-slate-700 rounded-md text-[#d0d2d6]' type="text" name='shop' id='shop' placeholder='Shop Name'/>
+                                    </div>  
+
+                                    <div className='flex flex-col w-full gap-1 mb-2'>
+                                        <label htmlFor="division">Division Name</label>
+                                        <input className='px-4 py-2 focus:border-indigo-200 outline-none bg-[#6a5fdf] border border-slate-700 rounded-md text-[#d0d2d6]' type="text" name='division' id='division' placeholder='Division Name'/>
+                                    </div>  
+
+                                    <div className='flex flex-col w-full gap-1 mb-2'>
+                                        <label htmlFor="district">District Name</label>
+                                        <input className='px-4 py-2 focus:border-indigo-200 outline-none bg-[#6a5fdf] border border-slate-700 rounded-md text-[#d0d2d6]' type="text" name='district' id='district' placeholder='District Name'/>
+                                    </div>  
+
+                                    <div className='flex flex-col w-full gap-1 mb-2'>
+                                        <label htmlFor="subDistrict">Sub District Name</label>
+                                        <input className='px-4 py-2 focus:border-indigo-200 outline-none bg-[#6a5fdf] border border-slate-700 rounded-md text-[#d0d2d6]' type="text" name='subDistrict' id='subDistrict' placeholder='Product Name'/>
+                                    </div>  
+
+                                    <div className='flex flex-col w-full gap-1 mb-2'>
+                                        <label htmlFor="name">Product Name</label>
+                                        <input className='px-4 py-2 focus:border-indigo-200 outline-none bg-[#6a5fdf] border border-slate-700 rounded-md text-[#d0d2d6]' type="text" name='name' id='name' placeholder='Product Name'/>
+                                    </div>  
+
+                                    <button className='bg-red-500 hover:shadow-red-500/40 hover:shadow-md text-white rounded-md px-7 py-2 my-2' >
+                                        Save Changes
+                                    </button>
+
+                                </form>
+                            }
+                            
+                        </div>
+
                     </div>
                 </div>
 
