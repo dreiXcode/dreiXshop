@@ -117,6 +117,13 @@ export const allNav = [
         icon : <AiFillDashboard />,
         role : 'seller',
         path : '/seller/dashboard/chat-support'
+    },
+    {
+        id : 17,
+        title : 'Profile',
+        icon : <AiFillDashboard />,
+        role : 'seller',
+        path : '/seller/dashboard/profile'
     }
     
 ]
