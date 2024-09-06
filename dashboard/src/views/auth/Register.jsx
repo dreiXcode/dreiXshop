@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import {Link} from 'react-router-dom'
 import { FaFacebook, FaGoogle } from "react-icons/fa";
+import { useDispatch, useSelector } from 'react-redux';
+import { PropagateLoader } from 'react-spinners'; 
+import { overrideStyle } from '../../utils/utils';
+import { Seller_register } from '../../store/Reducers/authReducer';
 
 const Register = () => {
+    const dispatch = useDispatch()
+
+    const {loader} = useSelector(state=> state.auth)
 
 const [state, setState] = useState({
     name:"",
@@ -19,7 +26,8 @@ const inputHandle = (e) => {
 
 const submit = (e) => {
     e.preventDefault()
-    console.log(state)
+    //console.log(state)
+    dispatch(Seller_register(state))
 }
 
     return (
@@ -44,17 +52,21 @@ const submit = (e) => {
 
                         <div className='flex flex-col w-full gap-1 mb-3'>
                             <label htmlFor="password">Password</label>
-                            <input onChange={inputHandle} value={state.password} className='px-3 py-2 outline-none border border-slate-700 bg-transparent rounded-md' type="text" name='password' placeholder='password' id='password' required/>
+                            <input onChange={inputHandle} value={state.password} className='px-3 py-2 outline-none border border-slate-700 bg-transparent rounded-md' type="password" name='password' placeholder='password' id='password' required/>
 
                         </div>
 
-                        <div className='flexn items-center w-full gap-3 mb-3'>
+                        <div className='flex items-center w-full gap-3 mb-3'>
                             <input onChange={inputHandle} value={state.password} className='w-4 h-4 text-blue-600 overflow-hidden bg-gray-200 rounded border-gray-300 focus:ring-blue-500' type="checkbox" name="checkbox" id="checkbox"/>
                             <label htmlFor="checkbos"> Terms and Condition</label>
 
                         </div>
 
-                        <button className='bg-slate-800 w-full hover:shadow-blue-300/50 hover:shadow-lg text-white rounded-md px-7 py-2 mb-3'>Sign Up</button>
+                        <button disabled={loader ? true : false} className='bg-slate-800 w-full hover:shadow-blue-300/50 hover:shadow-lg text-white rounded-md px-7 py-2 mb-3'>
+                        {
+                            loader ? <PropagateLoader color = '#fff' cssOverride={overrideStyle}/> : 'Sign Up'
+                        }
+                        </button>
 
                         <div className='flex items-center mb-3 gap-3 justify-center'>
                             <p>Already have an acount? <Link className='font-bold' to="/login">Sign In</Link></p>
