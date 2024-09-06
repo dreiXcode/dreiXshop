@@ -78,10 +78,9 @@ const AdminLogin = () => {
                         <button disabled={loader ? true : false} className='bg-slate-800 w-full hover:shadow-blue-300/50 hover:shadow-lg text-white rounded-md px-7 py-2 mb-3'>
                         {
                             loader ? <PropagateLoader color = '#fff' cssOverride={overrideStyle}/> : 'Sign In'
-                        }
-                        
-                        
+                        }                                                
                         </button>
+                        
                     </form>                    
                 </div>
             </div>            

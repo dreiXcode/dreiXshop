@@ -4,7 +4,6 @@ import { FaFacebook, FaGoogle } from "react-icons/fa";
 import { useDispatch, useSelector } from 'react-redux';
 import { PropagateLoader } from 'react-spinners'; 
 import { overrideStyle } from '../../utils/utils';
-//import { seller_register } from '../../store/Reducers/authReducer';
 import toast from 'react-hot-toast';
 import { seller_register, messageClear } from '../../store/Reducers/authReducer';
 
