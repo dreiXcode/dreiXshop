@@ -1,5 +1,6 @@
 const adminModel = require('../models/adminModel')
 const sellerModel = require('../models/sellerModel')
+const sellerCustomerModel = require('../models/chat/sellerCustomerModel')
 const { responseReturn } = require('../utilities/response')
 const bcrypt = require('bcrypt')
 const { createToken } = require('../utilities/tokenCreate')
@@ -55,11 +56,25 @@ class authControllers{
                     shopInfo: {}
                 })
                 //console.log(seller)
+                await sellerCustomerModel.create({
+                    myId: seller.id
+                })
+
+                const token = await createToken({
+                    id : seller.id, 
+                    role: seller.role
+                })
+                res.cookie('accessToken',token,{
+                    expires : new Date(Date.now() + 7*24*60*60*1000)
+                })
+
+                responseReturn(res, 201, {token, message: 'Register Success'})
             }
         } catch (error) {
-            console.log(error)
+            responseReturn(res, 500, {error: 'Internal Server Error'})
         }
     }
+    // End Method
 
     getUser = async(req, res) =>    {
         const {is, role} = req;
