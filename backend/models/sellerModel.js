@@ -16,15 +16,15 @@ const sellerSchema = new Schema({
     },
     role: {
         type: String,
-        dafault: 'seller'
+        default: 'seller'
     },
     status: {
         type: String,
-        dafault: 'pending'
+        default: 'pending'
     },
     payment: {
         type: String,
-        dafault: 'inactive'
+        default: 'inactive'
     },
     method: {
         type: String,
@@ -32,11 +32,11 @@ const sellerSchema = new Schema({
     },
     image: {
         type: String,
-        dafault: ''
+        default: ''
     },
     shopInfo: {
         type: Object,
-        dafault: {}
+        default: {}
     },
 },{timestamps: true})
 
