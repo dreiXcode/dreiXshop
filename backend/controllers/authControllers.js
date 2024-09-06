@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt')
 const { createToken } = require('../utilities/tokenCreate')
 
 class authControllers{
+    
     admin_login = async(req, res) => {
         const{email,password} = req.body
         try {
@@ -18,6 +19,41 @@ class authControllers{
                     const token = await createToken({
                         id : admin.id,
                         role : admin.role
+                    })  
+                    res.cookie('accessToken', token,{
+                        expires : new Date(Date.now() + 7*24*60*60*1000)
+                    })
+                    //responseReturn(res, 200, {token, message: "Login Success"})
+                    responseReturn(res, 200, {token, message: "Login Success"}) 
+                    
+
+                } else {
+                    responseReturn(res, 404, {error: "Incorrect password"})   
+                }
+                //console.log("Login Success response sent");
+
+            } else {
+                responseReturn(res, 404, {error: "Email not found"})   
+            }
+
+        } catch (error) {
+            responseReturn(res, 500, {error: error.message})
+        }
+    }
+    // End Method
+
+    seller_login = async(req, res) => {
+        const{email,password} = req.body
+        try {
+            const seller = await sellerModel.findOne({email}).select('+password')
+            //console.log(admin)
+            if (seller) {
+                const match = await bcrypt.compare(password, seller.password)
+                console.log(match)
+                if (match) {
+                    const token = await createToken({
+                        id : seller.id,
+                        role : seller.role
                     })  
                     res.cookie('accessToken', token,{
                         expires : new Date(Date.now() + 7*24*60*60*1000)
