@@ -48,24 +48,25 @@ export const sellerRoutes = [
         path : '/seller/dashboard/orders',
         element : <Orders />,
         role : 'seller',
-        ability : ['active','inactive']
+        visibility : ['active','inactive']
     },
     {
         path : '/seller/dashboard/order/details/:orderId',
         element : <OrderDetails />,
         role : 'seller',
-        ability : ['active','inactive']
+        visibility : ['active','inactive']
     },
     {
         path : '/seller/dashboard/Payments',
         element : <Payments />,
         role : 'seller',
-        ability : 'active'
+        visibility : 'active'
     },
     {
         path : '/seller/dashboard/chat-support',
         element : <SellerToAdmin />,
-        rability : ['active','inactive','pending']
+        role : 'seller',
+        visibility : ['active','inactive','pending']
     },
     {
         path : '/seller/dashboard/chat-customer/:customerId',
