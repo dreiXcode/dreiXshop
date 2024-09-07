@@ -4,6 +4,13 @@ import { FaUsers, FaUserTimes } from "react-icons/fa";
 import { MdPayment } from "react-icons/md";
 import { FaCodePullRequest } from "react-icons/fa6";
 import { IoChatbubblesSharp } from "react-icons/io5";
+import { IoMdAdd } from "react-icons/io";
+import { MdViewList } from "react-icons/md";
+import { TbBasketDiscount } from "react-icons/tb";
+import { BsFillCartCheckFill } from "react-icons/bs";
+import { IoChatbubbles } from "react-icons/io5";
+import { BsChatQuoteFill } from "react-icons/bs";
+import { CgProfile } from "react-icons/cg";
 
 export const allNav = [
     {
@@ -72,56 +79,56 @@ export const allNav = [
     {
         id : 10,
         title : 'Add Product',
-        icon : <AiFillDashboard />,
+        icon : <IoMdAdd />,
         role : 'seller',
         path : '/seller/dashboard/add-product'
     },
     {
         id : 11,
         title : 'All Product',
-        icon : <AiFillDashboard />,
+        icon : <MdViewList />,
         role : 'seller',
         path : '/seller/dashboard/products'
     },
     {
         id : 12,
         title : 'Discount Product',
-        icon : <AiFillDashboard />,
+        icon : <TbBasketDiscount />,
         role : 'seller',
         path : '/seller/dashboard/discount-product'
     },
     {
         id : 13,
         title : 'Orders',
-        icon : <AiFillDashboard />,
+        icon : <BsFillCartCheckFill />,
         role : 'seller',
         path : '/seller/dashboard/orders'
     },
     {
         id : 14,
         title : 'Payments',
-        icon : <AiFillDashboard />,
+        icon : <MdPayment />,
         role : 'seller',
         path : '/seller/dashboard/payments'
     },
     {
         id : 15,
         title : 'Chat-Customer',
-        icon : <AiFillDashboard />,
+        icon : <IoChatbubbles />,
         role : 'seller',
         path : '/seller/dashboard/chat-customer'
     },
     {
         id : 16,
         title : 'Chat Support',
-        icon : <AiFillDashboard />,
+        icon : <BsChatQuoteFill />,
         role : 'seller',
         path : '/seller/dashboard/chat-support'
     },
     {
         id : 17,
         title : 'Profile',
-        icon : <AiFillDashboard />,
+        icon : <CgProfile />,
         role : 'seller',
         path : '/seller/dashboard/profile'
     }
