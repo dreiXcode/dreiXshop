@@ -41,7 +41,7 @@ export const get_user_info = createAsyncThunk(
     async(_, {rejectWithValue, fulfillWithValue}) => {
         
         try {
-            const {data} = await api.get('/get-info', {withCredentials: true})
+            const {data} = await api.get('/get-user', {withCredentials: true})
             //console.log(data)
             return fulfillWithValue(data)            
         } catch (error) {
@@ -115,7 +115,7 @@ export const authReducer =  createSlice ({
             state.loader = false;
             state.successMessage = payload.message
             state.token = payload.token
-            state.token = returnRole(payload.token)
+            state.role = returnRole(payload.token)
         })
 
         .addCase(seller_login.pending, (state, {payload}) => {
@@ -129,7 +129,7 @@ export const authReducer =  createSlice ({
             state.loader = false;
             state.successMessage = payload.message
             state.token = payload.token
-            state.token = returnRole(payload.token)
+            state.role = returnRole(payload.token)
         })
 
         .addCase(seller_register.pending, (state, {payload}) => {
@@ -143,12 +143,12 @@ export const authReducer =  createSlice ({
             state.loader = false;
             state.successMessage = payload.message
             state.token = payload.token
-            state.token = returnRole(payload.token)
+            state.role = returnRole(payload.token)
         })
         
         .addCase(get_user_info.fulfilled, (state, {payload}) => {
             state.loader = false;
-            state.userInfo = payload.message
+            state.userInfo = payload.userInfo
         })
     }
 })
