@@ -131,4 +131,8 @@ class authControllers{
 
 }
 
+class categoryController{
+
+}
+
 module.exports = new authControllers()
