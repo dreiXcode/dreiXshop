@@ -21,7 +21,7 @@ export const categoryAdd = createAsyncThunk(
 )
 
 export const categoryReducer =  createSlice ({
-    name: 'cagory',
+    name: 'category',
     initialState: {
         successMessage: '',
         errorMessage: '',
