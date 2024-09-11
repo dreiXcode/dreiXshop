@@ -34,9 +34,6 @@ class categoryController{
                             image: result.url
                         })
 
-                        // Log the created category to confirm
-    console.log('Created Category:', category);
-
                         responseReturn(res, 201, {category, message : 'Category Added Successfully'})
                     } else {                        
                         responseReturn(res, 404, {error: 'Image Upload Failed'})
@@ -49,7 +46,7 @@ class categoryController{
     }
 
     get_category = async(req, res) => {
-        console.log('this is working')
+        const {page, searchValue, parPage} = req.query
     }
 
 }
