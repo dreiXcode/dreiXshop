@@ -33,7 +33,11 @@ class categoryController{
                             slug,
                             image: result.url
                         })
-                        responseReturn(res, 201, {category: 'Category Added Successfully'})
+
+                        // Log the created category to confirm
+    console.log('Created Category:', category);
+
+                        responseReturn(res, 201, {category, message : 'Category Added Successfully'})
                     } else {                        
                         responseReturn(res, 404, {error: 'Image Upload Failed'})
                     }

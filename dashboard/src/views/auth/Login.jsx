@@ -34,12 +34,12 @@ const Login = () => {
 
     useEffect(() => {
         if (successMessage) {
-            toast.success(successMessage);
+            toast.success(successMessage)
             dispatch(messageClear())
             navigate('/')
         }
         if (errorMessage) {
-            toast.error(errorMessage);
+            toast.error(errorMessage)
             dispatch(messageClear())
         }
     },[successMessage, errorMessage])
