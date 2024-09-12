@@ -14,7 +14,7 @@ import Search from '../components/Search';
 const Category = () => {
 
     const dispatch = useDispatch() 
-    const {loader, successMessage, errorMessage} = useSelector(state => state.category)
+    const {loader, successMessage, errorMessage, categories} = useSelector(state => state.category)
 
     const [currentPage, setCurrentPage] = useState(1)
     const [searchValue, setSearchValue] = useState('')
@@ -98,11 +98,11 @@ const Category = () => {
                                 </thead>
                                 <tbody>
                                     {
-                                        [1,2,3,4,5].map((d, i) => <tr key={i}>
-                                        <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>{d}</td>
+                                        categories.map((d, i) => <tr key={i}>
+                                        <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>{i+1}</td>
                                         <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
-                                            <img className='w-[45px] h-[45px]' src={`http://localhost:3000/images/category/${d}.jpg`} alt="" /></td>
-                                        <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>T-shirt</td>
+                                            <img className='w-[45px] h-[45px]' src={d.image} alt="" /></td>
+                                        <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>{d.name}</td>
                                         <td scope='row' className='py-1 px-4 font-medium whitespace-nowrap'>
                                             <div className='flex justify-start items-center gap-4'>
                                                 <Link className='p-[6px] bg-yellow-500 rounded hover:shadow-lg hover:shadow-yellow-500/50' ><FaEdit/></Link>
