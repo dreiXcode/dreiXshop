@@ -1,11 +1,12 @@
 const formidable = require("formidable")
 const { responseReturn } = require("../../utilities/response")
 const cloudinary = require('cloudinary').v2
-const productModel = requirer('../../models/productModel.js')
+const productModel = require('../../models/productModel.js')
 
 class productController{
 
     add_product = async(req, res) => {
+        const {id} = req;
         const form = formidable({ multiples: true })
 
         form.parse(req, async(err, field, files) => {
@@ -32,11 +33,22 @@ class productController{
                 }
 
                 await productModel.create({
-                    
+                    sellerId: id,
+                    name,
+                    slug,
+                    shopName,
+                    category: category.trim(),
+                    description: description.trim(),
+                    stock: parseInt(stock),
+                    price: parseInt(stock),
+                    discount: parseInt(stock),
+                    images: allImageUrl,
+                    brand: brand.trim()
                 })
+                responseReturn(res, 201, {message : 'Product Added Successfully'})
 
             } catch (error) {
-                
+                responseReturn(res, 500, {message : error.message})
             }
         })
     }
