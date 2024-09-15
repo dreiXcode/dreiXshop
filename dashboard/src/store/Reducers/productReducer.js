@@ -50,6 +50,21 @@ export const get_product = createAsyncThunk(
         }
     }
 )
+export const update_product = createAsyncThunk(
+    'products/update_product',
+    async( product, {rejectWithValue, fulfillWithValue}) => {
+        
+        try {
+            const {data} = await api.get(`/product-update`,product , {withCredentials: true})
+            console.log(data)
+            return fulfillWithValue(data)            
+        } catch (error) {
+            //console.log(error.response.data)
+            return rejectWithValue(error.response.data); 
+
+        }
+    }
+)
 
 export const productReducer =  createSlice ({
     name: 'product',
