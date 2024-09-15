@@ -1,42 +1,62 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { IoImages } from "react-icons/io5";
 import { IoMdCloseCircle } from "react-icons/io";
+import { useDispatch, useSelector } from 'react-redux';
+import { get_category } from '../../store/Reducers/categoryReducer';
+import { get_product } from '../../store/Reducers/productReducer';
 
 const EditProduct = () => {
 
-    const categories = [
-        {
-            id : 1,
-            name : 'Sports'
+    const { productId } = useParams()
 
-        },
-        {
-            id : 2,
-            name : 'Tshirt'
+    const dispatch = useDispatch()
+    const { categories } = useSelector(state => state.category)
 
-        },
-        {
-            id : 3,
-            name : 'Mobile'
+    useEffect(() => {
+        dispatch(get_category({
+            searchValue: '',
+            parPage: '',
+            page: ""
+        }))
+    }, [])
 
-        },
-        {
-            id : 4,
-            name : 'Computer'
+    useEffect(() => {
+        dispatch(get_product(productId))
+    }, [productId])
 
-        },
-        {
-            id : 5,
-            name : 'Watch'
+    // const categories = [
+    //     {
+    //         id : 1,
+    //         name : 'Sports'
 
-        },
-        {
-            id : 6,
-            name : 'Pant'
+    //     },
+    //     {
+    //         id : 2,
+    //         name : 'Tshirt'
 
-        }
-    ]
+    //     },
+    //     {
+    //         id : 3,
+    //         name : 'Mobile'
+
+    //     },
+    //     {
+    //         id : 4,
+    //         name : 'Computer'
+
+    //     },
+    //     {
+    //         id : 5,
+    //         name : 'Watch'
+
+    //     },
+    //     {
+    //         id : 6,
+    //         name : 'Pant'
+
+    //     }
+    // ]
 
     const [state, setState] = useState({
         name : "",
