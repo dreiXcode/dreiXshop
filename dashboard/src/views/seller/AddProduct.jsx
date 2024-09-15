@@ -233,7 +233,7 @@ const AddProduct = () => {
                         </div>
 
                         <div className='flex'>
-                        <button disabled={loader ? true : false} className='bg-red-500 w-[280px] hover:shadow-red-300/50 hover:shadow-lg text-white rounded-md px-7 py-2 mb-3'>
+                        <button disabled={loader ? true : false} className='bg-red-500 w-[375px] hover:shadow-red-300/50 hover:shadow-lg text-white rounded-md px-7 py-2 mb-3'>
                                         {
                                             loader ? <PropagateLoader color = '#fff' cssOverride={overrideStyle}/> : 'Add Product'
                                         }                                                
