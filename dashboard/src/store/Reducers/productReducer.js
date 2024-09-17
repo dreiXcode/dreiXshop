@@ -141,7 +141,11 @@ export const productReducer =  createSlice ({
         })
         .addCase(update_product.fulfilled, (state, {payload}) => {
             state.loader = false;
-            state.producgt = payload.product
+            state.product = payload.product
+            state.successMessage = payload.message
+        })
+        .addCase(product_image_update.fulfilled, (state, {payload}) => {
+            state.product = payload.product
             state.successMessage = payload.message
         })
     }
