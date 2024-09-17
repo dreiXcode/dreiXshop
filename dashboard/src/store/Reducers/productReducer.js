@@ -50,6 +50,7 @@ export const get_product = createAsyncThunk(
         }
     }
 )
+
 export const update_product = createAsyncThunk(
     'products/update_product',
     async( product, {rejectWithValue, fulfillWithValue}) => {
@@ -64,7 +65,33 @@ export const update_product = createAsyncThunk(
 
         }
     }
-)
+)//End Method
+
+
+export const product_image_update = createAsyncThunk(
+    'products/product_image_update',
+    async( {oldImage, newImage, productId}, {rejectWithValue, fulfillWithValue}) => {
+        
+        try {
+
+            const formData = new FormData()
+            formData.append('oldImage', oldImage)
+            formData.append('newImage', newImage)
+            formData.append('productId', productId)
+
+            const {data} = await api.post('/product-image-update',formData , {withCredentials: true})
+            console.log(data)
+            return fulfillWithValue(data)            
+        } catch (error) {
+            //console.log(error.response.data)
+            return rejectWithValue(error.response.data); 
+
+        }
+    }
+)//End Method
+
+
+
 
 export const productReducer =  createSlice ({
     name: 'product',

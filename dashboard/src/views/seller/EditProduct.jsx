@@ -4,7 +4,7 @@ import { IoImages } from "react-icons/io5";
 import { IoMdCloseCircle } from "react-icons/io";
 import { useDispatch, useSelector } from 'react-redux';
 import { get_category } from '../../store/Reducers/categoryReducer';
-import { get_product, update_product, messageClear } from '../../store/Reducers/productReducer';
+import { get_product, update_product, messageClear, product_image_update } from '../../store/Reducers/productReducer';
 import { PropagateLoader } from 'react-spinners'; 
 import { overrideStyle } from '../../utils/utils';
 import toast from 'react-hot-toast';
@@ -61,13 +61,15 @@ const EditProduct = () => {
         }
     }
 
-    const [images, setImages] = useState([])
     const [imageShow, setImageShow] = useState([])
 
     const changeImage = (img, files) => {
         if (files.length > 0) {
-            console.log(img)
-            console.log(files[0])
+            dispatch(product_image_update({
+                oldImage: img,
+                newImage: files[0],
+                productId
+            }))
         }
     }
 
@@ -88,7 +90,7 @@ const EditProduct = () => {
         if (categories.lenght > 0) {
             setAllCategory(categories)
         }
-    })
+    },[categories])
 
     useEffect(() => {
         if (successMessage) {
