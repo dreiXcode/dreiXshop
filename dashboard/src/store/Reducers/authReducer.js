@@ -69,7 +69,7 @@ export const profile_image_upload = createAsyncThunk(
 ) // End Method
 
 export const seller_register = createAsyncThunk(
-    'auth/seller--register',
+    'auth/seller-register',
     async(info, {rejectWithValue, fulfillWithValue}) => {
         try {
             console.log(info)
@@ -83,7 +83,22 @@ export const seller_register = createAsyncThunk(
 
         }
     }
-)
+)// end method
+
+export const profile_info_add = createAsyncThunk(
+    'auth/profile_info_add',
+    async(info, {rejectWithValue, fulfillWithValue}) => {
+        try {
+            console.log(info)
+            const {data} = await api.post('/profile-info-add',info, {withCredentials: true})
+            return fulfillWithValue(data)            
+        } catch (error) {
+            //console.log(error.response.data)
+            return rejectWithValue(error.response.data); 
+
+        }
+    }
+)// end method
 
 const returnRole = (token) => {
     if (token) {
