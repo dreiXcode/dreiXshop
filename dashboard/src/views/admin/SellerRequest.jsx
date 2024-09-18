@@ -8,7 +8,7 @@ import { get_seller_request } from '../../store/Reducers/sellerReducer';
 
 const SellersRequest = () => {
     
-    const disptach = useDispatch()
+    const dispatch = useDispatch()
     const {sellers, totalSeller}  = useSelector(state => state.seller)
 
 
@@ -18,7 +18,7 @@ const SellersRequest = () => {
     const [show, setShow] = useState(false)
 
     useEffect(() => {
-        dispatchEvent(get_seller_request({
+        dispatch(get_seller_request({
             parPage,
             searchValue,
             page: currentPage
