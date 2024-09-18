@@ -160,6 +160,28 @@ class authControllers{
         })
     }// end getUser Method
 
+    profile_info_add = async (req, res) => {
+        const { division, district, shopName, sub_district } = req.body;
+        const { id } = req;
+
+        try {
+            await sellerModel.findByIdAndUpdate(id, {
+                shopInfo: {
+                    shopName,
+                    division,
+                    district,
+                    sub_district
+                }
+            })
+            const userInfo = await sellerModel.findById(id)            
+            responseReturn(res, 201, {message : 'Profile Info Added Successfully', userInfo})
+        } catch (error) {
+            responseReturn(res, 500, {error : error.message})
+        }
+
+
+    }//end method
+
 }
 
 

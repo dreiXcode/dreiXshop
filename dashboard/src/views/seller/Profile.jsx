@@ -45,7 +45,7 @@ const Profile = () => {
     }
 
     const add = (e) => {
-        e.prevenDefault()
+        e.preventDefault()
         dispatch(profile_info_add(state))
     }
 
