@@ -143,12 +143,6 @@ const Profile = () => {
                                         <label htmlFor="sub">Sub District Name</label>
                                         <input value={state.sub_district} onChange={inputHandle} className='px-4 py-2 focus:border-indigo-200 outline-none bg-[#6a5fdf] border border-slate-700 rounded-md text-[#d0d2d6]' type="text" name='sub_district' id='sub' placeholder='Sub District Name'/>
                                     </div>  
-
-                                    <div className='flex flex-col w-full gap-1 mb-2'>
-                                        <label htmlFor="name">Product Name</label>
-                                        <input className='px-4 py-2 focus:border-indigo-200 outline-none bg-[#6a5fdf] border border-slate-700 rounded-md text-[#d0d2d6]' type="text" name='name' id='name' placeholder='Product Name'/>
-                                    </div>  
-
                                     
                                     <button disabled={loader ? true : false} className='bg-red-500 w-[200px] hover:shadow-red-300/50 hover:shadow-lg text-white rounded-md px-7 py-2 mb-3'>
                                         {
@@ -175,7 +169,7 @@ const Profile = () => {
                                 </div>
 
                                 <div className='flex gap-2'>
-                                    <span>Sub Distric : </span>
+                                    <span>Sub District : </span>
                                     <span>{ userInfo.shopInfo?.sub_district }</span>
                                 </div>
 
