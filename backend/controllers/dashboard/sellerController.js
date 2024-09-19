@@ -22,7 +22,18 @@ class sellerController{
         } catch (error) {
             responseReturn(res, 500, { error: error.message })
         }
-    }
+    }//End Method
+
+    get_seller = async (req, res) => {
+        const {sellerId} = req.params
+
+        try {
+            const seller = await sellerModel.findById(sellerId)
+            responseReturn(res, 200, {seller})
+        } catch (error) {
+            responseReturn(res, 500, {error: error.message})
+        }
+    }//End Method
 
 }
 
