@@ -18,9 +18,11 @@ const SellerDetails = () => {
             <h1 className='text-[20px] font-bold mb-3'>Seller Details</h1>
             <div className='w-full p-4 bg-[#6a5fdf] rounded-md'>
                 <div className='w-full flex flex-wrap text-[#d0d2d6]'>
-                    <div className='w-3/12 flext justify-center items-center py-3'>
+                    <div className='w-3/12 flex justify-center items-center py-3'>
                         <div>
-                            <img className='w-full h-[230px]' src="http://localhost:3000/images/demo.jpg" alt="" />
+                            {
+                                seller?.image ? <img className='w-full h-[230px]' src="http://localhost:3000/images/demo.jpg" alt="" /> : <span>Image Not Uploaded</span>
+                            }
                         </div>
                     </div>
 
@@ -32,23 +34,23 @@ const SellerDetails = () => {
                             <div className='flex justify-between text-sm flex-col gap-2 p-4 bg-[#9e97e9] rounded-md'>
                                 <div className='flex gap-2 font-bold text-[#000000]'>
                                     <span>Name : </span>
-                                    <span>dreiXcode</span>
+                                    <span>{ seller?.name }</span>
                                 </div>
                                 <div className='flex gap-2 font-bold text-[#000000]'>
                                     <span>Email : </span>
-                                    <span>dreiX@gmail.com</span>
+                                    <span>{ seller?.email }</span>
                                 </div>
                                 <div className='flex gap-2 font-bold text-[#000000]'>
                                     <span>Role : </span>
-                                    <span>Seller</span>
+                                    <span>{ seller?.role }</span>
                                 </div>
                                 <div className='flex gap-2 font-bold text-[#000000]'>
                                     <span>Status : </span>
-                                    <span>Active</span>
+                                    <span>{ seller?.status }</span>
                                 </div>
                                 <div className='flex gap-2 font-bold text-[#000000]'>
                                     <span>Payment Status : </span>
-                                    <span>Active</span>
+                                    <span>{ seller?.payment }</span>
                                 </div>
                             </div>                            
                         </div>
@@ -62,19 +64,19 @@ const SellerDetails = () => {
                             <div className='flex justify-between text-sm flex-col gap-2 p-4 bg-[#9e97e9] rounded-md'>
                                 <div className='flex gap-2 font-bold text-[#000000]'>
                                     <span>Shop Name : </span>
-                                    <span>dreiXshop</span>
+                                    <span>{ seller?.shopInfo?.shopName }</span>
                                 </div>
                                 <div className='flex gap-2 font-bold text-[#000000]'>
                                     <span>Division : </span>
-                                    <span>Millwoods</span>
+                                    <span>{ seller?.shopInfo?.division }</span>
                                 </div>
                                 <div className='flex gap-2 font-bold text-[#000000]'>
                                     <span>District : </span>
-                                    <span>South</span>
+                                    <span>{ seller?.shopInfo?.disctrict }</span>
                                 </div>
                                 <div className='flex gap-2 font-bold text-[#000000]'>
                                     <span>State : </span>
-                                    <span>YEG</span>
+                                    <span>{ seller?.shopInfo?.sub_district }</span>
                                 </div>
                             </div>                            
                         </div>
