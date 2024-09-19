@@ -1,13 +1,17 @@
 import React from 'react';
 import { MdEmail } from "react-icons/md";
 import { IoMdPhonePortrait } from "react-icons/io";
-import { FaFacebookF } from "react-icons/fa";
+import { FaFacebookF, FaLock, FaUser } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { TiArrowSortedDown } from "react-icons/ti";
+import { Link } from 'react-router-dom';
 
 const Header = () => {
+
+    const user = false
+
     return (
         <div className='w-full bg-white'>
             <div className='header-top bg-[#caddff] md-lg:hidden'>
@@ -46,6 +50,16 @@ const Header = () => {
                                     </ul>
 
                                 </div>
+
+                                {
+                                    user ? <Link className='flex cursor-pointer justify-center items-center gap-2 text-sm text-black' to='/dashbaord'> 
+                                        <span><FaUser/></span>
+                                        <span>dreiXcode</span>                                    
+                                    </Link> :  <Link className='flex cursor-pointer justify-center items-center gap-2 text-sm text-black' to='/dashbaord'> 
+                                        <span><FaLock/></span>
+                                        <span>dreiXcode</span>                                    
+                                    </Link>
+                                }
 
                             </div>
                         </div>
