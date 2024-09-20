@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 import { MdEmail } from "react-icons/md";
 import { IoMdPhonePortrait } from "react-icons/io";
-import { FaFacebookF, FaList, FaLock, FaUser } from "react-icons/fa";
+import { FaFacebookF, FaList, FaLock, FaShoppingCart, FaUser } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { TiArrowSortedDown } from "react-icons/ti";
 import { Link, useLocation } from 'react-router-dom';
+import { AiFillHeart } from 'react-icons/ai';
 
 const Header = () => {
 
     const {pathname} = useLocation()
     const [showSidebar, setShowSidebar] = useState(true)
     const user = false
+    const wishlist_count = 3
 
     return (
         <div className='w-full bg-white'>
@@ -88,6 +90,7 @@ const Header = () => {
 
                         <div className='md:lg:w-full w-9/12'>
                             <div className='flex justify-between md-lg:justify-center items-center flex-wrap pl-8'>
+                                
                                 <ul className='flex justify-start items-start gap-8 text-sm font-bold uppercase md-lg:hidden'>
                                     <li>
                                         <Link className={`p-2 block ${pathname === '/' ? 'text-[#059473]' : 'text-slate-600' }`}>Home</Link>
@@ -108,8 +111,31 @@ const Header = () => {
                                     <li>
                                         <Link className={`p-2 block ${pathname === '/contact' ? 'text-[#059473]' : 'text-slate-600' }`}>Contact Us</Link>
                                     </li> 
-
                                 </ul>
+
+                                <div className='flex md-lg:hidden justify-center items-center gap-5'>
+                                    <div className='flex justify-center gap-5'>
+
+                                        <div className='relative flex justify-center items-center cursor-pointer w-[35px] h-[35px] rounded-full bg-[#e2e2e2]'>
+                                            <span className='text-xl text-green-500'><AiFillHeart/></span>
+                                            <div className='w-[20px] h-[20px] absolute bg-red-500 rounded-full text-white flex justify-center items-center -top-[3px] -right-[5px]'>
+                                                {
+                                                    wishlist_count
+                                                }
+                                            </div>
+                                        </div>
+
+                                        <div className='relative flex justify-center items-center cursor-pointer w-[35px] h-[35px] rounded-full bg-[#e2e2e2]'>
+                                            <span className='text-xl text-green-500'><FaShoppingCart/></span>
+                                            <div className='w-[20px] h-[20px] absolute bg-red-500 rounded-full text-white flex justify-center items-center -top-[3px] -right-[5px]'>
+                                                {
+                                                    wishlist_count
+                                                }
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
 
                             </div>
                         </div>
