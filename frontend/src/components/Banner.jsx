@@ -30,6 +30,7 @@ const Banner = () => {
                 <div className='w-full flex flex-wrap md-lg:gap-8'>
                     <div className='w-full'>
                         <div className='my-8'>
+                            
                             <Carousel
                                 autoPlay={true}
                                 infinite={true}
