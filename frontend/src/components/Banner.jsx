@@ -10,7 +10,7 @@ const Banner = () => {
             breakpoint: {max: 4000, min: 3000},
             items: 1
         },
-        Desktop: {
+        desktop: {
             breakpoint: {max: 3000, min: 1024},
             items: 1
         },
@@ -30,7 +30,7 @@ const Banner = () => {
                 <div className='w-full flex flex-wrap md-lg:gap-8'>
                     <div className='w-full'>
                         <div className='my-8'>
-                            
+
                             <Carousel
                                 autoPlay={true}
                                 infinite={true}
@@ -47,13 +47,9 @@ const Banner = () => {
                             </Carousel>
 
                         </div>
-
                     </div>
-
                 </div>
-
-            </div>
-            
+            </div>            
         </div>
     );
 };

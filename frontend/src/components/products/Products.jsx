@@ -2,8 +2,9 @@ import React from 'react';
 import Carousel from 'react-multi-carousel';
 import { Link } from 'react-router-dom';
 import 'react-multi-carousel/lib/styles.css'
+import { IoIosArrowBack, IoIosArrowForward  } from "react-icons/io";
 
-const Products = () => {
+const Products = ({title}) => {
 
     const products = [
         [1,2,3],
@@ -15,7 +16,7 @@ const Products = () => {
             breakpoint: {max: 4000, min: 3000},
             items: 1
         },
-        Desktop: {
+        desktop: {
             breakpoint: {max: 3000, min: 1024},
             items: 1
         },
@@ -29,34 +30,65 @@ const Products = () => {
         }
     }
     
-    const ButtonGroup = () => {
-
+    const ButtonGroup = ({next, previous}) => {
+        return (
+            <div className='flex justify-between items-center w-full absolute top-0 left-0 p-4'>
+                <div className='text-xl font-bold text-slate-600'>{title}</div>
+                
+                <div className='flex justify-center items-center gap-3 text-slate-600'>
+                    <button onClick={previous} className='w-[30px] h-[30px] flex justify-center items-center bg-slate-300 border border-slate-200'>
+                    <IoIosArrowBack />
+                    </button>
+                    <button onClick={next} className='w-[30px] h-[30px] flex justify-center items-center bg-slate-300 border border-slate-200'>
+                    <IoIosArrowForward />
+                    </button>
+                </div>
+                
+            </div>
+        )
     }
     
     return (
-        <div className='flex gap-8'>
+        <div className='w-full md-lg:mt-6'>
+            <div className='w-[85%] lg:w-[90%] mx-auto'>
+                <div className='w-full flex flex-wrap md-lg:gap-8'>
+                    <div className='w-full'>
+                        <div className='relative my-8'>
 
-            <Carousel
-                autoPlay={false}
-                infinite={false}
-                arrows={false}
-                responsive={responsive}
-                transitionDuration={500}
-                renderButtonGroupOutside={true}
-                customButtonGroup={ButtonGroup}
-            >
+                            <Carousel
+                                autoPlay={false}
+                                infinite={false}
+                                arrows={false}
+                                responsive={responsive}
+                                transitionDuration={500}
+                                renderButtonGroupOutside={true}
+                                customButtonGroup={<ButtonGroup/>}
+                            >
+                                {
+                                    products.map((p, i) => {
+                                        return(
+                                                <div className='flex flex-col justify-start gap-2 key={i} pt-14'>
+                                                    {
+                                                        p.map((pl, j) => 
+                                                            <Link to='#' className='flex justify-start items-start'>
+                                                                <img className='w-[110px] h-[110px]' src={`http://localhost:3000/images/products/${pl}.webp`} alt="" />
+                                                                <div className='px-3 flex justify-start items-start gap-1 flex-col text-slate-600'>
+                                                                    <h2>Product Name</h2>
+                                                                    <span className='text-lg font-bold'>$213</span>
+                                                                </div>
+                                                            </Link>
+                                                        )
+                                                    }
+                                                </div>
+                                        )
+                                    })
+                                }
+                            </Carousel>
 
-                <div className='flex flex-col justify-start gap-2'>
-                    <Link to='#'>
-                        <div className='px-3 flex justify-start items-start gap-1 flex-col text-slate-600'>
-                            <h2>Product Name</h2>
-                            <span>$213423</span>
                         </div>
-                    </Link>
+                    </div>
                 </div>
-
-            </Carousel>
-            
+            </div>            
         </div>
     );
 };
