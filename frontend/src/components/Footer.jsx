@@ -1,5 +1,10 @@
 import React from 'react';
+import { FaFacebook } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { FaFacebookF} from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 
 const Footer = () => {
     return (
@@ -73,10 +78,35 @@ const Footer = () => {
                             <input className='h-full bg-transparent w-full px-3 outline-0' type="text" placeholder='Enter Your Email' />
                             <button className='h-full absolute right-0 bg-[#059473] text-white uppercase px-4 font-bold text-sm'>Subscribe</button>
                         </div>
+                        
+                        <ul className='flex justify-start items-center gap-3'>
+                            <li>
+                                <a href="#" className='w-[38px] h-[38px] hover:bg-[#059473] hover:text-white flex justify-center items-center bg-white rounded-full'><FaFacebookF /></a>
+                            </li>
+
+                            <li>
+                                <a href="#" className='w-[38px] h-[38px] hover:bg-[#059473] hover:text-white flex justify-center items-center bg-white rounded-full'><FaTwitter /></a>
+                            </li>
+
+                            <li>
+                                <a href="#" className='w-[38px] h-[38px] hover:bg-[#059473] hover:text-white flex justify-center items-center bg-white rounded-full'><FaLinkedin /></a>
+                            </li>
+
+                            <li>
+                                <a href="#" className='w-[38px] h-[38px] hover:bg-[#059473] hover:text-white flex justify-center items-center bg-white rounded-full'><FaGithub /></a>
+                            </li>
+
+                        </ul>
                     </div>
                 </div>
 
             </div>
+
+            <div className='w-[90%] flex flex-wrap justify-center items-center text-slate-600 mx-auto py-5 text-center'>
+                <span>Copyright@ 2024 All Rights Reserved</span>
+
+            </div>
+            
         </footer>
     );
 };
