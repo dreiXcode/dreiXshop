@@ -9,6 +9,7 @@ import { CiStar } from 'react-icons/ci';
 import Products from '../components/products/Products';
 import { BsFillGridFill } from "react-icons/bs";
 import { FaThList } from "react-icons/fa";
+import ShopProducts from './../components/products/ShopProducts';
 
 const Shops = () => {
 
@@ -161,6 +162,7 @@ const Shops = () => {
 
                             <div className='w-9/12 md-lg:w-8/12 md:w-full'>
                                 <div className='pl-8 md:pl-0'>
+
                                     <div className='py-4 bg-white mb-10 px-3 rounded-md flex justify-between items-start border'>
                                         <h2 className='text-lg font-medium text-slate-600'>14 Products</h2>
 
@@ -184,6 +186,12 @@ const Shops = () => {
                                             </div>                                            
                                         </div>
                                     </div>
+
+                                    <div className='pb-8'>
+                                        <ShopProducts styles={styles}/>
+
+                                    </div>
+
                                 </div>
                             </div>
 
