@@ -8,7 +8,7 @@ import { FaGithub } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <footer className='bg-[##f3f6fa]'>
+        <footer className='bg-[#f3f6fa]'>
             <div className='w-[85%] flex flex-wrap mx-auto border-b py-16 md-lg:pb-10 sm:pb-6'>
                 
                 <div className='w-3/12 lg:w-4/12 sm:w-full'>
