@@ -37,9 +37,9 @@ const FeatureProducts = () => {
                                 
                                 <li className='w-[38px] h-[38px] cursor-pointer bg-white flex justify-center items-center rounded-full hover:bg-[#059473] hover:text-white hover:rotate-[720deg] transition-all'>
                                 <RiShoppingCartLine />
-                                </li>
-                                
+                                </li>                                
                             </ul>
+                            
                         </div>
 
                         <div className='py-3 text-slate-600 px-2'>
