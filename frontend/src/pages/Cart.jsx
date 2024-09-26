@@ -101,7 +101,6 @@ const Cart = () => {
                                                                                 <div className='px-3 cursor-pointer'>-</div>
                                                                                 <div className='px-3'>2</div>
                                                                                 <div className='px-3 cursor-pointer'>+</div>
-                                                                                
                                                                             </div>
 
                                                                             <button className='px-5 py-[3px] bg-red-500 text-white'>Delete</button>
