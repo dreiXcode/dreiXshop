@@ -19,9 +19,9 @@ const Home = () => {
     return (
         <div className='w-full'>
 
-            <Header/>
+            <Header categories={categories}/>
             <Banner/>
-            <Categories/>
+            <Categories categories={categories}/>
             
             <div className='py-[45px]'>                
                 <FeatureProducts/>
